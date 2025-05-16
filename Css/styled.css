@@ -1,0 +1,823 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: box-sizing;
+  font-family: "Times New Roman", Times, serif;
+}
+
+body {
+  background-image: url("bg-img.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow-x: hidden;
+}
+
+/* < =====  LOGO IMAGES RIGHT HERE ====== > */
+.logo-section {
+  display: flex;
+  justify-content: center;
+  margin-left: 39%;
+  width: 20%;
+}
+.logo-section img {
+  width: 80%;
+  align-items: center;
+  margin-top: 1rem;
+} /* < =====  LOGO IMAGES END HERE ====== > */
+
+/* < ====== LOGIN OPTIONS ===== > */
+.login-options {
+  display: flex;
+  margin-left: 39%;
+  align-items: center;
+  margin-top: 25px;
+  gap: 15px;
+}
+
+.login-options button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background: #f0f0f0;
+  transition: all 0.3s;
+}
+
+.login-options button.active {
+  background: #4caf50;
+  color: white;
+} /* < =====  LOGIN OPTIONS END HERE ====== > */
+
+/* ======  LOGIN/SIGNUP STYLE =====*/
+.form-styling {
+  display: grid;
+  color: white;
+  width: 23%;
+  margin-left: 37%;
+  text-align: center;
+  margin-top: 10px;
+}
+.form-styling label {
+  font-size: 16px;
+  padding: 10px;
+  font-weight: 100;
+}
+.form-styling input {
+  color: white;
+  padding: 10px 39px;
+  border-radius: 10px;
+  font-size: 14px;
+  border: 1px solid white;
+  background: transparent;
+}
+
+input::placeholder {
+  color: gray;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+/*---- FORGOT PASSWORD CSS ----*/
+.forgot-password {
+  text-decoration: none;
+  color: white;
+  margin-top: 10px;
+  margin-left: 60%;
+}
+.forgot-password:hover {
+  color: rgb(0, 255, 0);
+}
+.form-button {
+  margin-top: 10px;
+  display: block;
+  align-items: center;
+  justify-content: center;
+}
+.form-button button {
+  padding: 12px;
+  border: 1px solid rgb(0, 208, 255);
+  border-radius: 10px;
+  width: 100%;
+  margin-bottom: 10px;
+  background: black;
+  color: white;
+}
+.form-button button:hover {
+  background: rgb(0, 255, 0);
+  color: black;
+  border: 1px solid white;
+}
+.form-button p {
+  margin-left: 1.2rem;
+}
+.form-button a {
+  color: white;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  padding: 3px;
+}
+.form-button a:hover {
+  color: rgb(0, 255, 0);
+}
+
+.hidden {
+  display: none !important;
+}
+.fade {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.show {
+  display: block !important;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#reader {
+  border: 2px solid #32cd32;
+  border-radius: 12px;
+  background: #1a1a1a !important;
+  padding: 10px;
+  color: white;
+  margin-top: 20px;
+  border: 1px solid white;
+}
+#reader img,
+#reader svg {
+  filter: invert(1);
+}
+#reader button {
+  background-color: #32cd32 !important;
+  color: black;
+  margin-bottom: 20px;
+  border: none !important;
+  border-radius: 6px !important;
+  padding: 8px 12px !important;
+  margin-top: 10px;
+  cursor: pointer;
+}
+#reader button:hover {
+  background-color: rgb(74, 74, 74) !important;
+  font-weight: 500;
+  color: green;
+}
+#reader .qr-code-full-region {
+  background-color: transparent !important;
+}
+#reader .qr-code-region {
+  stroke: rgb(74, 74, 74) !important;
+  color: green;
+}
+
+/* QR message text no underline */
+#qrMessage p {
+  text-decoration: none !important;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+#reader .image-box {
+  border: 2px dashed #32cd32 !important; /* green 2px dashed */
+  border-radius: 8px;
+  padding: 10px;
+}
+
+#qrcode {
+  position: absolute;
+  display: none;
+  background: transparent;
+  padding: 15px;
+  border-radius: 8px;
+  top: 26%;
+  left: 20%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+#qrLoginForm {
+  padding: 10px;
+  background: rgba(0, 107, 0, 0.59);
+  border-radius: 8px;
+  margin-top: 10px;
+  margin-left: 33%;
+  color: black;
+  width: 30%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#qrMessage {
+  margin-top: 15px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* < ===== SIGN UP CSS HERE ====== > */
+.form-signup {
+  color: white;
+  display: inline-block;
+  margin-left: 37%;
+  width: 23%;
+  text-align: center;
+  margin-top: 2%;
+  margin-right: 42%;
+}
+::placeholder {
+  color: white;
+}
+.form-signup input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  color: white;
+  border: 1px solid rgb(0, 162, 255);
+  background: transparent;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+.signup-button {
+  margin-top: 10px;
+  display: block;
+  align-items: center;
+  justify-content: center;
+}
+.signup-button button {
+  padding: 12px;
+  border: 1px solid rgb(0, 208, 255);
+  border-radius: 10px;
+  width: 100%;
+  margin-bottom: 10px;
+  background: black;
+  color: white;
+}
+.signup-button button:hover {
+  background: rgba(0, 217, 255, 0.683);
+  color: black;
+  border: 1px solid white;
+}
+.signup-button p {
+  margin-left: 5%;
+}
+.signup-button a {
+  color: white;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  padding: 3px;
+}
+.signup-button a:hover {
+  color: rgb(0, 255, 0);
+}
+
+/* ======= Sidebar container ====== */
+
+.sidebar {
+  position: absolute;
+  top: 45px;
+  right: 3%;
+  width: 100%;
+  background-color: transparent;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+/* Navigation list styles */
+.sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Navigation link styles */
+.sidebar ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  padding: 8px 12px;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+  border-bottom: 1px solid green;
+  color: green;
+  border-radius: 4px;
+}
+
+/* < =====  END OF NAVBAR  ====== > */
+
+/* < =====  PASSWORD CSS HERE ===== > */
+/* Password container styling */
+.password-container {
+  position: relative;
+  margin-bottom: 20px; /* Adjust spacing as needed */
+}
+
+/* Eye icon styling */
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  top: 75%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #0dff00;
+  z-index: 2;
+}
+
+/* Adjust input padding to prevent text under icon */
+.password-container input[type="password"],
+.password-container input[type="text"] {
+  padding-right: 40px; /* Make space for the icon */
+  width: 100%;
+  padding: 12px 15x;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+/* Sign Up CSS */
+
+/* LANDING PAGE CSS */
+.navbar {
+  background: transparent;
+  margin-right: 3rem;
+  font-family: "Times New Roman", Times, serif;
+}
+.navbar a {
+  text-decoration: none;
+  color: white;
+}
+.navbar ul {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.navbar li {
+  list-style: none;
+  display: inline-block;
+}
+.navbar li a {
+  float: left;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.navbar a:hover {
+  color: rgb(0, 255, 0);
+}
+.navbar a:active {
+  color: rgb(0, 187, 255);
+}
+
+.logo-left {
+  margin-left: 7rem;
+  margin-bottom: 20px;
+  padding: 15px;
+}
+.logo-left img {
+  position: absolute;
+  width: 90px;
+  height: auto;
+  cursor: pointer;
+}
+.land-text {
+  display: block;
+  justify-content: center;
+  text-align: center;
+  margin-top: 17%;
+  font-family: "Times New Roman", Times, serif;
+  color: white;
+}
+.land-text p {
+  font-size: 27px;
+  letter-spacing: 2px;
+}
+.land-text h1 {
+  letter-spacing: 3px;
+  font-size: 30px;
+}
+.one-name {
+  color: rgb(0, 255, 0);
+}
+.solo-one {
+  color: rgb(0, 255, 0);
+}
+.solo-two {
+  color: rgb(0, 187, 255);
+}
+.land-page-btn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  letter-spacing: 1px;
+  background: transparent;
+  border: 1px solid rgb(0, 255, 72);
+  border-radius: 10px;
+}
+.land-text button:hover {
+  border: 1px solid white;
+  background: rgb(0, 255, 38);
+}
+.land-page-btn a {
+  text-decoration: none;
+  color: white;
+}
+.land-page-btn a:hover {
+  color: black;
+}
+
+/* Mobile-First Media Queries for Android */
+@media only screen and (max-width: 768px) {
+  /* Password container styling */
+  .password-container {
+    position: relative;
+    margin-bottom: 20px; /* Adjust spacing as needed */
+  }
+
+  /* Eye icon styling */
+  .password-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #777;
+    z-index: 2;
+  }
+
+  /* Adjust input padding to prevent text under icon */
+  .password-container input[type="password"],
+  .password-container input[type="text"] {
+    padding-right: 40px; /* Make space for the icon */
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+  }
+  body {
+    background-size: auto 100%; /* Better fit for mobile screens */
+    background-attachment: fixed; /* Prevent background shift */
+  }
+
+  /* Logo Section Adjustments */
+  .logo-section,
+  .logo-sections {
+    margin-left: 15% !important;
+    width: 70%;
+  }
+  .logo-section img,
+  .logo-sections img {
+    width: 100%;
+    margin-top: 3rem;
+  }
+
+  /* Form Overhauls */
+
+  /* Input Fields */
+  input {
+    font-size: 14px !important;
+    padding: 10px 15px !important;
+  }
+
+  /* Navigation */
+  .navbar ul {
+    flex-direction: column;
+    align-items: flex-end;
+    padding-right: 10px;
+  }
+  .navbar li {
+    margin: 5px 0 !important;
+  }
+
+  /* Landing Page */
+  .logo-left img {
+    width: 30% !important;
+  }
+  .land-text {
+    margin-top: 40% !important;
+    margin-right: 10% !important;
+  }
+  .land-text h1 {
+    font-size: 2rem !important;
+  }
+  .land-text p {
+    font-size: 1rem !important;
+  }
+
+  /* Button Scaling */
+  button {
+    padding: 10px !important;
+    font-size: 14px;
+  }
+}
+.about-section {
+  padding: 30px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 8px;
+  margin: 20px auto;
+  max-width: 800px;
+  color: white;
+  text-align: center;
+  border: 1px solid rgb(0, 255, 0);
+}
+
+.about-section h2 {
+  color: rgb(0, 255, 0);
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+.about-section p {
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+/* FOOTER CSS */
+
+.footer {
+  margin-top: 17%;
+  padding: 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.footer-links h1 {
+  color: green;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.footer hr {
+  border: none;
+  border-top: 1px solid #00ff11;
+  margin-bottom: 15px;
+}
+
+.footer-links a {
+  color: green;
+  text-decoration: none;
+  margin: 0 12px;
+  font-size: 13px;
+}
+
+.footer-links a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* ====== MANAGE CONTAINER ====== */
+
+.manage-container {
+  display: block;
+  margin-top: 7%;
+  justify-content: space-between;
+  gap: 20px;
+  margin-left: 20%;
+  width: 60%;
+}
+
+.container {
+  width: 70%;
+  margin: 20px auto;
+  text-align: center;
+}
+.logo {
+  display: grid;
+  justify-content: center;
+}
+.logo img {
+  margin-top: 1rem;
+  width: 110px;
+}
+
+.toggle-button,
+.generate-payslip-btn {
+  width: 100%;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+.toggle-button {
+  background: #0f0;
+  margin-bottom: 20px;
+  color: #000;
+  border: none;
+}
+.toggle-button:hover {
+  background: #0d0;
+  color: #000;
+  font-weight: 600;
+}
+
+/* =============== PROFILE SECTION =============== */
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: white;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.profile img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #0f0;
+  display: block;
+  aspect-ratio: 1/1;
+}
+
+.profile .name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-left: 10px;
+  flex-grow: 1;
+}
+
+img[src*="profile.jpg"] {
+  width: 70px !important;
+  height: 70px !important;
+  max-width: none !important;
+}
+
+.dropdown-container {
+  display: none;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  margin-top: 15px;
+}
+.dropdown-container h3 {
+  color: #0f0;
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgba(0, 255, 0, 0.5);
+  padding-bottom: 8px;
+}
+
+.attendance-row {
+  display: flex;
+  color: white;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid green;
+}
+.attendance-row:last-child {
+  border-bottom: none;
+}
+.label {
+  font-weight: bold;
+  color: #0f0;
+}
+
+/* =============== UTILITY CLASSES =============== */
+.no-employees {
+  background: rgba(244, 67, 54, 0.8);
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  margin: 15px 0;
+  text-align: center;
+}
+
+.employees-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.employee-card {
+  background: rgba(42, 42, 42, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+.employee-card:hover {
+  transform: translateY(-5px);
+}
+
+/* =============== BUTTONS =============== */
+
+.generate-payslip-btn {
+  background: #111;
+  color: #0f0;
+  border: 1px solid #0f0;
+  margin-top: 15px;
+}
+.generate-payslip-btn:hover {
+  background: #0f0;
+  color: #111;
+}
+
+/* Portrait Optimization */
+@media only screen and (max-width: 400px) and (orientation: portrait) {
+  about-section {
+    padding: 20px 15px;
+    margin: 15px;
+    border-radius: 5px;
+  }
+
+  .about-section h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+
+  .about-section p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  footer {
+    padding: 15px;
+    margin-top: 20px;
+  }
+
+  footer a {
+    font-size: 14px;
+  }
+  /* Password container styling */
+  .password-container {
+    position: relative;
+    margin-bottom: 20px; /* Adjust spacing as needed */
+  }
+
+  /* Eye icon styling */
+  .password-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #777;
+    z-index: 2;
+  }
+
+  /* Adjust input padding to prevent text under icon */
+  .password-container input[type="password"],
+  .password-container input[type="text"] {
+    padding-right: 40px; /* Make space for the icon */
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+  }
+  .form-login,
+  .form-signup {
+    top: 30vh !important;
+  }
+  .forgot-password {
+    margin-left: 40% !important;
+  }
+}
+
+/* Landscape Adjustments */
+@media only screen and (max-width: 768px) and (orientation: landscape) {
+  /* Password container styling */
+  .password-container {
+    position: relative;
+    margin-bottom: 20px; /* Adjust spacing as needed */
+  }
+
+  /* Eye icon styling */
+  .password-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #777;
+    z-index: 2;
+  }
+
+  /* Adjust input padding to prevent text under icon */
+  .password-container input[type="password"],
+  .password-container input[type="text"] {
+    padding-right: 40px; /* Make space for the icon */
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+  }
+  .navbar {
+    display: none;
+  }
+
+  .land-text {
+    margin-top: 80px !important; /* Add space for the toggle button */
+  }
+}
